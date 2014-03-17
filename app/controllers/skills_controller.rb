@@ -7,7 +7,7 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.json
   def index
-	@skills = Skill.all
+	@skills = Skill.where(:id => @user.users_skills.skill_id)
   end
 
   # GET /skills/new
