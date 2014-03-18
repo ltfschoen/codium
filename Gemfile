@@ -9,9 +9,23 @@ gem 'omniauth-github'
 gem 'dotenv'
 gem 'pry-rails'
 
-# for testing
-gem 'rspec-rails'
-gem 'capybara'
+# testing gems 
+group :test do
+
+	gem 'rspec-rails'
+
+	gem 'capybara'
+
+	# for better tests
+	gem 'shoulda'
+	
+	# mocking and stubbing
+	gem 'mocha'
+
+	# added simplecov to see how much code is covered by our tests
+	gem 'simplecov', :require => false
+
+end
 
 # Use postgresql as the database for Active Record
 gem 'pg'
