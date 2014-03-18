@@ -42,6 +42,17 @@
         null,
         null
       ],
+      "/Users/Luke/Documents/w9d0_codium/codium/app/controllers/pages_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/Luke/Documents/w9d0_codium/codium/app/models/post.rb": [
         1,
         1,
@@ -62,19 +73,8 @@
         null,
         null,
         null
-      ],
-      "/Users/Luke/Documents/w9d0_codium/codium/app/controllers/pages_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null
       ]
     },
-    "timestamp": 1395116912
+    "timestamp": 1395117250
   }
 }

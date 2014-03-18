@@ -1,8 +1,6 @@
 Codium::Application.routes.draw do
 
 
-  resources :skills
-
   resources :posts do
   	resources :comments
   end
