@@ -58,11 +58,12 @@ feature "account management" do
 
   context "when logged out" do
 
-    before(:each) do
+    let(:user) do
       user = User.new(email: 'test@test.com')
       user.username = 'epoch'
       user.password = user.password_confirmation = 'password'
       user.save
+      user
     end
 
     scenario "view profile page" do

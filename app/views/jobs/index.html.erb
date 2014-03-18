@@ -1,0 +1,22 @@
+<% if current_user %>
+	<p><%= link_to 'Add a Job', new_user_job_path(current_user), class:'btn btn-default' %></p>
+<% end %>
+
+<% @jobs.each do |job| %>
+	
+	<%= link_to user_job_path(current_user,job) do %>
+
+		<div id="job">
+			<h3><%= job.name %></h3>
+			<p><%= job.location %></p>
+			<p><%= job.deadline %></p>
+			<p class="button"><%= link_to 'Edit', edit_user_job_path(current_user,job), class:'btn btn-default' %></p>
+			<p class="button"><%= link_to 'Delete', user_job_path(current_user,job), class:'btn btn-default', method: 'delete' %></p>
+		</div>
+	
+	<% end %>
+
+
+<% end %>
+
+

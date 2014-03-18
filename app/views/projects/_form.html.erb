@@ -1,0 +1,83 @@
+<%if @project.id.present? %>
+    <button id="show">add member</button>
+    <dialog id="window" class="userlists"> 
+    <span class="exit">X</span>
+    <ul>
+      <% @users.each do |user| %>
+        <li><%= user.username %> 
+
+          <span class=<%="user_#{user.id}"%>>
+            
+            <% if @project.members.include? user %>
+              <% @membership_to_remove = @project.memberships.find_by_member_id user.id %>
+              <%= form_for @membership_to_remove, 
+                            remote: true, 
+                            method: :delete, 
+                            html:{ 
+                              id:"remove_#{user.id}"
+                              } do |f| %>
+              <%= f.submit "remove member", id: "remove" %>
+              <% end %>
+
+            <% end %>
+              <!-- form to add to members -->
+              <%= form_for @membership, 
+                            remote: true, 
+                            html:{ 
+                              id:"add_#{user.id}",
+                              style: @project.members.include?(user)? "display:none;" : ""
+                              } do |f| %>
+                <%= f.hidden_field :project_id, value: @project.id  %>
+                <%= f.hidden_field :member_id, value: user.id  %>
+                <%= f.submit "add as member", id: "add" %>
+              <% end %>
+
+          </span>
+        </li>
+      <% end %>
+    </ul>
+    </dialog>
+  
+  <% end %>
+
+
+<%= form_for(@project,html: {:role => 'form', :class => 'form'}) do |f| %>
+
+  
+  <div>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name, :placehodler => 'name', required: true %>
+  </div>
+  
+  
+
+
+  <div>
+	  <%= f.label :image %>
+	  <%= f.file_field :image %>
+  </div>
+
+  <div>
+     <%= f.submit "Create" %>
+  </div>
+
+<% end %>
+
+
+<script>
+  
+  $("#window").hide();
+
+  $("#show").on("click", function(e){
+      e.preventDefault();
+      $("#window").fadeToggle(400);
+  });
+
+  $(".exit").on("click",function() {
+    $("#window").fadeToggle(400);
+  })
+
+
+
+
+</script>

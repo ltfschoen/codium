@@ -27,6 +27,9 @@ group :test do
 
 end
 
+# user friendly id & permalinks
+gem 'friendly_id'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -57,6 +60,9 @@ group :doc do
 end
 
 gem 'bootstrap-sass'
+
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

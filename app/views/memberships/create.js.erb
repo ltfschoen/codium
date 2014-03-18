@@ -1,0 +1,11 @@
+
+
+// hide the add membership button
+$('<%="#add_#{@membership.member.id}"%>').toggle();
+
+// create form for delete membership
+var del_form = '<form accept-charset="UTF-8" action="/memberships/<%= @membership.id %>" class="edit_membership" data-remote="true" id="remove_<%= @membership.member.id %>" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="delete" /></div><input id="remove" name="commit" type="submit" value="remove member" /></form>'
+
+
+// append form to user
+$('.user_<%=@membership.member.id%>').append(del_form);

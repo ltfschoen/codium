@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Team</title>
+</head>
+<body>
+
+<h1>Meet our team</h1>
+
+<img src="http://lorempixel.com/1200/480" alt="">
+
+<p>Desc</p>
+
+<div id="tech_stack">
+	<div class="tech_field">
+		<h3>HTML5 & CSS3</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, perferendis, autem sed quo et natus nemo ratione ipsum quam eligendi mollitia maiores doloribus aspernatur quae eos nulla cumque dolorum error. </p>
+	</div>
+	<div class="tech_field">
+		<h3>Javascript/Jquery/AJAX</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, perferendis, autem sed quo et natus nemo ratione ipsum quam eligendi mollitia maiores doloribus aspernatur quae eos nulla cumque dolorum error. </p>
+	</div>
+	<div class="tech_field">
+		<h3>Ruby On Rails</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, perferendis, autem sed quo et natus nemo ratione ipsum quam eligendi mollitia maiores doloribus aspernatur quae eos nulla cumque dolorum error. </p>
+	</div>
+	<div class="tech_field">
+		<h3>TDD/AGILE/Comp Sci</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, perferendis, autem sed quo et natus nemo ratione ipsum quam eligendi mollitia maiores doloribus aspernatur quae eos nulla cumque dolorum error. </p>
+	</div>
+</div>
+
+<% @users.each do |user| %>
+	
+	<p><%= link_to user.email, me_profile_path %></p>
+ 	<!-- add links to github and portfolio -->
+	
+
+<% end %>
+
+	
+</body>
+</html>

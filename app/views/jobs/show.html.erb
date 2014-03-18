@@ -1,0 +1,9 @@
+<div id="job">
+		<h3><%= @job.name %></h3>
+		<p><%= @job.location %></p>
+		<p><%= @job.description %> </p>
+		<p><%= @job.deadline %></p>
+		<p><%= link_to 'Edit', edit_user_job_path(current_user,@job), class:'btn btn-default button' %></p>
+		<p><%= link_to 'Delete', user_job_path(current_user,@job), class:'btn btn-default button' %></p>
+		<%= link_to 'Back', jobs_path, :class => "btn btn-sm btn-default button" %>
+</div>

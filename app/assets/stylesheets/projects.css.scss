@@ -1,0 +1,28 @@
+
+
+dialog {
+  display: block;
+  width:500px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  margin: 0 auto;
+  background-color: red;
+  z-index: 100;
+  border-radius: 10px;
+}
+
+
+dialog .exit {
+  float: right;
+  cursor: pointer; 
+  padding: 5px;
+}
+
+dialog li {
+  padding: 5px;
+}
+
+.new_membership {
+  display: inline-block;
+}
