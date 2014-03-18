@@ -1,3 +1,10 @@
 $('<%="#remove_#{@membership.member.id}"%>').remove();
 
 $('<%="#add_#{@membership.member.id}"%>').toggle();
+
+
+// only in project show page do
+if ( $('#showProjectMembersList').length ) {
+  $('#member_<%= current_user.id%>').remove();
+}
+

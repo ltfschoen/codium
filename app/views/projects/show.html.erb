@@ -7,9 +7,43 @@
   <%= link_to "Edit", edit_project_path(@project) %>
 <% end %>
 
-<h4>members</h4>
-<% @project.members.each do |member| %>
-  <p><%= member.username %></p>
+
+
+<!-- button for logged in user to add/remove theirself to project member-->
+<% if current_user %>
+  <div class="user_<%= current_user.id %>">
+     <% if @project.members.include? current_user %>
+    <% @membership_to_remove = @project.memberships.find_by_member_id current_user.id %>
+    <%= form_for @membership_to_remove, 
+      remote: true, 
+      method: :delete, 
+      html:{ 
+        id:"remove_#{current_user.id}"
+        } do |f| %>
+    <%= f.submit "remove member", id: "remove" %>
+    <% end %>
+  <% end %>
+  <!-- if not member showing form to add to members -->
+  <%= form_for @membership, 
+                remote: true, 
+                html:{ 
+                  id:"add_#{current_user.id}",
+                  style: @project.members.include?(current_user)? "display:none;" : ""
+                  } do |f| %>
+    <%= f.hidden_field :project_id, value: @project.id  %>
+    <%= f.hidden_field :member_id, value: current_user.id  %>
+    <%= f.submit "add as member", id: "add" %>
+  <% end %>
+  </div>
+
 <% end %>
+
+
+<h4>members</h4>
+<div id="showProjectMembersList">
+  <% @project.members.each do |member| %>
+  <p id ="member_<%= member.id%>" ><%= member.username %></p>
+  <% end %>
+</div>
 
 <%= link_to "back", projects_path  %>

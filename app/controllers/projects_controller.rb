@@ -12,6 +12,7 @@ def new
 end
 
 def show
+  @membership = Membership.new
 end
 
 def edit

@@ -1,5 +1,3 @@
-
-
 // hide the add membership button
 $('<%="#add_#{@membership.member.id}"%>').toggle();
 
@@ -9,3 +7,8 @@ var del_form = '<form accept-charset="UTF-8" action="/memberships/<%= @membershi
 
 // append form to user
 $('.user_<%=@membership.member.id%>').append(del_form);
+
+
+if ( $('#showProjectMembersList').length ) {
+  $('#showProjectMembersList').append("<p id='member_<%= current_user.id %>'><%= current_user.username %></p>")
+}
