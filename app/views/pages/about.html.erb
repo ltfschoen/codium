@@ -1,1 +1,12 @@
 <h1>About Page</h1>
+<%= @tweet %>
+<div><%= @tweet[0].user.screen_name %></div>
+<!-- <div><%#= @tweet[1].text %></div> -->
+<%#= @tweet.text %>
+<% @tweet.class %>
+<% t = 0 %>
+<% @tweet.each do |tweet| %>
+<div><%= tweet.text  %></div>
+<% t = t + 1 %>
+<% end %>
+

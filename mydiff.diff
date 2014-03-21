@@ -1,0 +1,282 @@
+diff --git a/app/assets/javascripts/skills.js.coffee b/app/assets/javascripts/skills.js.coffee
+deleted file mode 100644
+index 24f83d1..0000000
+--- a/app/assets/javascripts/skills.js.coffee
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# Place all the behaviors and hooks related to the matching controller here.
+-# All this logic will automatically be available in application.js.
+-# You can use CoffeeScript in this file: http://coffeescript.org/
+diff --git a/app/assets/stylesheets/skills.css.scss b/app/assets/stylesheets/skills.css.scss
+deleted file mode 100644
+index a1c8761..0000000
+--- a/app/assets/stylesheets/skills.css.scss
++++ /dev/null
+@@ -1,3 +0,0 @@
+-// Place all the styles related to the Skills controller here.
+-// They will automatically be included in application.css.
+-// You can use Sass (SCSS) here: http://sass-lang.com/
+diff --git a/app/controllers/skills_controller.rb b/app/controllers/skills_controller.rb
+deleted file mode 100644
+index 38d5dfc..0000000
+--- a/app/controllers/skills_controller.rb
++++ /dev/null
+@@ -1,42 +0,0 @@
+-class SkillsController < ApplicationController
+-  skip_before_action :authenticate_user!, only: [:index]
+-
+-  before_action :set_user, only: [:new, :create]
+-  before_action :skill_params, only: [:create]
+-
+-  # GET /skills
+-  # GET /skills.json
+-  def index
+-	@skills = Skill.where(:id => @user.users_skills.skill_id)
+-  end
+-
+-  # GET /skills/new
+-  def new
+-    @skill = Skill.new
+-  end
+-
+-  # POST /skills
+-  def create
+-    @skill = @user.users_skills.new(skill_params)
+-
+-    respond_to do |format|
+-      if @skill.save
+-        format.html { redirect_to skills_path, notice: 'Skill was successfully created.' }
+-      else
+-        format.html { redirect_to skills_path, notice: 'Unable to create skill.' }
+-      end
+-    end
+-  end
+-
+-  private
+-
+-    def set_user
+-
+-        @user = current_user
+-
+-    end 
+-
+-    def skill_params
+-      params.require(:skill).permit(:skill_type, :user_id)
+-    end
+-end
+diff --git a/app/helpers/skills_helper.rb b/app/helpers/skills_helper.rb
+deleted file mode 100644
+index 5a66444..0000000
+--- a/app/helpers/skills_helper.rb
++++ /dev/null
+@@ -1,2 +0,0 @@
+-module SkillsHelper
+-end
+diff --git a/app/models/skill.rb b/app/models/skill.rb
+deleted file mode 100644
+index daa6a90..0000000
+--- a/app/models/skill.rb
++++ /dev/null
+@@ -1,7 +0,0 @@
+-class Skill < ActiveRecord::Base
+-  validates :name, presence: true 
+-
+-  has_many :users_skills
+-  has_many :users, :through => :users_skills #, :uniq => true
+-
+-end
+diff --git a/app/views/skills/_form.html.erb b/app/views/skills/_form.html.erb
+deleted file mode 100644
+index 7ee447e..0000000
+--- a/app/views/skills/_form.html.erb
++++ /dev/null
+@@ -1,22 +0,0 @@
+-<%= form_for(@skill) do |f| %>
+-  <% if @skill.errors.any? %>
+-    <div id="error_explanation">
+-      <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+-
+-      <ul>
+-      <% @skill.errors.full_messages.each do |msg| %>
+-        <li><%= msg %></li>
+-      <% end %>
+-      </ul>
+-    </div>
+-  <% end %>
+-
+-  <div class="field">
+-    <%= f.label :skill_type %><br>
+-    <%= f.collection_select(:id, Skill.all, :id, :skill_type, {:prompt => 'Please select skill type'} ) %>
+-  </div>
+-
+-  <div class="actions">
+-    <%= f.submit %>
+-  </div>
+-<% end %>
+diff --git a/app/views/skills/index.html.erb b/app/views/skills/index.html.erb
+deleted file mode 100644
+index adfff91..0000000
+--- a/app/views/skills/index.html.erb
++++ /dev/null
+@@ -1,21 +0,0 @@
+-<h1>Existing Skills Listing</h1>
+-
+-<table>
+-  <thead>
+-    <tr>
+-      <th>Type</th>
+-    </tr>
+-  </thead>
+-
+-  <tbody>
+-    <% @skills.each do |skill| %>
+-      <tr>
+-        <td><%= skill.skill_type %></td>
+-      </tr>
+-    <% end %>
+-  </tbody>
+-</table>
+-
+-<br>
+-
+-<%= link_to 'Create New Skill', new_skill_path %>
+diff --git a/app/views/skills/new.html.erb b/app/views/skills/new.html.erb
+deleted file mode 100644
+index 7052835..0000000
+--- a/app/views/skills/new.html.erb
++++ /dev/null
+@@ -1,5 +0,0 @@
+-<h1>New Skill</h1>
+-
+-<%= render 'form' %>
+-
+-<%= link_to 'Back', root_url, :class => "btn btn-sm btn-default " %>
+\ No newline at end of file
+diff --git a/config/database.yml.sample b/config/database.yml.sample
+deleted file mode 100644
+index 23ee9ff..0000000
+--- a/config/database.yml.sample
++++ /dev/null
+@@ -1,24 +0,0 @@
+-
+-development:
+-  adapter: postgresql
+-  encoding: unicode
+-  database: codium_development
+-  pool: 5
+-  username: 
+-  password:
+-
+-test:
+-  adapter: postgresql
+-  encoding: unicode
+-  database: codium_test
+-  pool: 5
+-  username: 
+-  password:
+-
+-production:
+-  adapter: postgresql
+-  encoding: unicode
+-  database: codium_production
+-  pool: 5
+-  username: codium
+-  password:
+diff --git a/config/routes.rb b/config/routes.rb
+index f35ed46..8d33ad3 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,8 +1,6 @@
+ Codium::Application.routes.draw do
+ 
+ 
+-  resources :skills
+-
+   resources :posts do
+   	resources :comments
+   end
+diff --git a/coverage/.resultset.json b/coverage/.resultset.json
+index e79b00c..1288508 100644
+--- a/coverage/.resultset.json
++++ b/coverage/.resultset.json
+@@ -42,39 +42,39 @@
+         null,
+         null
+       ],
+-      "/Users/Luke/Documents/w9d0_codium/codium/app/models/post.rb": [
++      "/Users/Luke/Documents/w9d0_codium/codium/app/controllers/pages_controller.rb": [
+         1,
+         1,
+         null,
+-        null,
+         1,
+-        0,
++        1,
+         null,
++        1,
+         null,
++        null
++      ],
++      "/Users/Luke/Documents/w9d0_codium/codium/app/models/post.rb": [
++        1,
+         1,
+-        0,
+         null,
+         null,
+         1,
++        0,
++        null,
+         null,
+         1,
+-        1,
++        0,
+         null,
+         null,
+-        null
+-      ],
+-      "/Users/Luke/Documents/w9d0_codium/codium/app/controllers/pages_controller.rb": [
+-        1,
+         1,
+         null,
+         1,
+         1,
+         null,
+-        1,
+         null,
+         null
+       ]
+     },
+-    "timestamp": 1395116912
++    "timestamp": 1395117250
+   }
+ }
+diff --git a/coverage/index.html b/coverage/index.html
+index b28767b..2adef85 100644
+--- a/coverage/index.html
++++ b/coverage/index.html
+@@ -14,7 +14,7 @@
+       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
+     </div>
+     <div id="wrapper" style="display:none;">
+-      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-18T15:28:32+11:00">2014-03-18T15:28:32+11:00</abbr></div>
++      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-18T15:34:10+11:00">2014-03-18T15:34:10+11:00</abbr></div>
+       <ul class="group_tabs"></ul>
+ 
+       <div id="content">
+diff --git a/db/migrate/20140303010839_create_skills.rb b/db/migrate/20140303010839_create_skills.rb
+deleted file mode 100644
+index 1332d8f..0000000
+--- a/db/migrate/20140303010839_create_skills.rb
++++ /dev/null
+@@ -1,11 +0,0 @@
+-class CreateSkills < ActiveRecord::Migration
+-  def change
+-    create_table :skills do |t|
+-      t.string :name
+-      t.string :type
+-      t.integer :level
+-
+-      t.timestamps
+-    end
+-  end
+-end
