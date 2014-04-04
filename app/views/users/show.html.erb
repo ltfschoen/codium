@@ -1,9 +1,8 @@
+<div class="container-fluid profile-page profile">
+    <div class="profile">
 
-<div class="container-fluid profile-page">
-  <div class ="studentinfo clearfix">
-    <div>
       <h2 class="studentinfo-title"><%= @user.given_name %> <%= @user.family_name %></h2>
-      <h3><%= @user.tagline %></h3>            
+      <h3><%= @user.tagline %></h3>
     </div>
 
     <div class="row studentinfo">
@@ -11,47 +10,50 @@
         <%= image_for_user(@user, :class => "grid-image") %>
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-7 col-md-offset-1">
         <p><%= @user.bio %></p>
 
         <% if @user.linkedin? %>
-          <%= link_to "<i class=\"fa fa-linkedin-square\"></i>".html_safe, @user.linkedin, :target => "_blank" -%>
+            <%= link_to "<i class=\"fa fa-linkedin-square\"></i>".html_safe, @user.linkedin, :target => "_blank" -%>
         <% end %>
 
         <% if @user.github? %>
-          <%= link_to "<i class=\"fa fa-github-square\"></i>".html_safe, @user.github, :target => "_blank" -%>
+            <%= link_to "<i class=\"fa fa-github-square\"></i>".html_safe, @user.github, :target => "_blank" -%>
         <% end %>
 
         <% if @user.twitter? %>
-          <%= link_to "<i class=\"fa fa-twitter-square\"></i>".html_safe, @user.twitter, :target => "_blank" -%>
+            <%= link_to "<i class=\"fa fa-twitter-square\"></i>".html_safe, @user.twitter, :target => "_blank" -%>
         <% end %>
 
         <% if @user.website? %>
-          <%= link_to "<i class=\"fa fa-desktop\"></i>".html_safe, @user.website, :target => "_blank" -%>
+            <%= link_to "<i class=\"fa fa-desktop\"></i>".html_safe, @user.website, :target => "_blank" -%>
         <% end %>
       </div>
     </div>
 
-    <h2>Projects</h2>
-    <div class="row projects clearfix" >
-      <% @projects.each do |project| %>
-      <div class="proj col-sm-4">
-        <a href="<%= project.url %>"><%= image_for_project(project, class: "grid-image") %></a>
-      </div>
-      <div class="proj col-sm-8">
-        <%= link_to project.name, project.url %>
-        <p><%= project.description %></p>
-        <% if project.members.count > 1 %>
-        <h4>Project Team</h4>
-        <% project.members.each do |member| %>
-        <%= link_to member.username, user_path(member) %> 
-        <% end %>
-        <% end %>
-      </div>
+    <div class="row projects clearfix">
+      <% if @projects.present? %>
+          <div class="row projects clearfix">
+            <h2> My work </h2>
+            <% @projects.each do |project| %>
+                <div class="proj col-md-4 col-sm-6 col-xs-12">
+                  <%= image_for_project(project, :class => "grid-image") %>
+                  <div class="project-text">
+                  <h3><%= project.name %></h3>
+                  <p><%= truncate(project.description, length: 250){ link_to "read more...", project_path(project) } %></p>
+                  <% if project.members.present? %>
+                      <strong>Owned by:</strong><br />
+                      <% project.members.each do |member| %>
+                          <%= link_to member.given_name, user_path(member) %>
+                      <% end %>
+                  <% end %><br />
+                  <%= link_to 'Project Details', project_path(project), :class => 'btn btn-xs btn-default' %> <%= link_to 'Go To Website', project.url, :class => 'btn btn-xs btn-default'  %>
+                </div>
+                </div>
+            <% end %>
 
       <% end %>
-    </div>
 
-  </div>
+    </div>
 </div>
 </div>

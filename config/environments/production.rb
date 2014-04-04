@@ -90,4 +90,20 @@ Codium::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  #email configuration
+  config.action_mailer.default_url_options = { :host => 'wdi3.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'app23724426@heroku.com'}
+  #config.action_mailer.async = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.sendgrid.net',
+      port:                 587,
+      domain:               'heroku.com',
+      user_name:            'app23724426@heroku.com',
+      password:             'wyinisz3',
+      authentication:       'plain',
+      enable_starttls_auto: true
+  }
 end

@@ -89,3 +89,4 @@ gem 'will_paginate-bootstrap'
 
 # testing coverage checker
 gem 'simplecov'
+gem 'rails_12factor'

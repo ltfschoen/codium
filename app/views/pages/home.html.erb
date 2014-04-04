@@ -160,12 +160,14 @@
 
 
 <section class="class-shot">
-		<h2><strong>The team</strong></br>Nick : : Alberto : : Federico : : Ed : : Lauren : : Emily : : Luke M : : Sam : : Luke S : : Pranava : : Marcus</h2>
+		<h2 id="class-shot-title">The team</h2>
+		<h2>Nick : : Alberto : : Federico : : Ed : : Lauren : : Emily : : Luke M : : Sam : : Luke S : : Pranava : : Marcus</h2>
 	</div>
+
 
 </section><!--End Slide 3-->
 
-<section>
+<section id="slide4">
 	
 	<div  class="clearfix">
 		<div id="home-section4" class="container-fluid clearfix">
@@ -173,16 +175,18 @@
 			<div class="row clearfix">
 				<div class="col-sm-4 students">
 					<h3>Students</h3>
-					<span class="glyphicon glyphicon-user"></span>
+					<%= link_to image_tag('graduation-cap-icon.svg', height: "200px" ), users_path %>
 					<p><%= link_to 'View all students', users_path %></p>
 				</div>
 				<div class="col-sm-4 teachers">
 					<h3>Daniel Tsui</h3>
 					<p>Instructor/Developer In Residence at General Assemb.ly. Passion in Javascript and Ruby on Rails</p>
+					<%= image_tag('dt.jpg') %>
 				</div>
 				<div class="col-sm-4 teachers">
 					<h3>Taryn East</h3>
 					<p>Instructor/Developer at General Assemb.ly. Passion in Ruby on Rails.</p>
+					<%= image_tag('taryn.jpg') %>
 				</div>
 			</div>
 		</div>
@@ -209,7 +213,7 @@ $(".skillbox").mouseleave(function() {
 <script>
 $(document).ready(function(){
 	var $affixTop = $('#affix');
-	var $imageHeight = $('#slide1').height();
+	var $imageHeight = $('.header').height();
 
 	$(window).on('scroll', function(){
 		if (this.scrollY >= $imageHeight) {

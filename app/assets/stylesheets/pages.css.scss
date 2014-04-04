@@ -16,6 +16,18 @@ $i: 0;
 STUDENT PAGE STYLES 
 *******************************/
 
+a {
+	color: #333;
+	font-family: Roboto;
+	text-transform: uppercase;
+	font-weight: 400;
+	text-decoration: underline;
+	@include transition (color .2s ease-in-out);
+	&:hover {
+		color: #f03;
+	}
+}
+
 .students-container {
 
   .student-image-container {
@@ -190,15 +202,6 @@ nav ul li {
 	padding: 7px;
 }
 
-nav li a:link {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	color: red;
-}
-
 
 /******************************
 SLIDE 1 
@@ -213,6 +216,7 @@ SLIDE 1
 
 .header {
   display: table;
+  z-index:-1;
   height: 100%;
   width: 100%;
   position: relative;
@@ -225,13 +229,21 @@ SLIDE 1
 
 .class-shot {
   display: table;
-  height: 600px;
+  height: 600px;	
   width: 100%;
-  background: image-url('wdistudents2014.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  padding-top:20px;
+  color: #fff;
+  
+  background: image-url('wdistudents2014.jpg') no-repeat fixed; 
+  // background-position: 50% 30%;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  background-size: 100%;
+}
+
+#class-shot-title {
+	margin-top: 40%;
 }
 
 h1 {
@@ -246,7 +258,7 @@ h1 {
 	width:500px;  
 	margin-top:-41px;
 	margin-left:-223px;  
-	z-index:1;
+	z-index:0;
 	border:10px solid #fff;
 	font-family: "Roboto";
 	font-weight:900;
@@ -256,12 +268,7 @@ h1 {
 /******************************
 SLIDE 2 
 *******************************/
-#slide2{
-	height:1000px ;
-	.info ul li{
-		font-size: 13px;
-	}
-}
+
 
 #stack {
 	margin-top: 6%;
@@ -271,30 +278,11 @@ SLIDE 2
 /******************************
 SLIDE 3 
 *******************************/
-#slide3{
-	background: image-url('wdistudents2014.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;  
-	.wrapper{
-		height:0;
-	}
-	h2 {
-		font-size: 50px;
-		text-transform: uppercase;
-		color: white;
-		text-align:center;
-		line-height: 70px;
-		font-weight: 400;
-		padding-bottom:0;
-		padding:20px;
-		border:10px solid #fff;
-	}
+
 	.text-quote{
 		positon:relative;
 		top:40%;
 	}
-}
 
 /******************************
 SLIDE 4 
@@ -322,10 +310,25 @@ SLIDE 4
 
 	.students,.teachers {
 		height: 300px;
+		h3 {
+			margin-top: 0;
+		}
+	}
+
+	.students {
+		h3{
+			margin-bottom: 50px;
+		}
 	}
 
 	.students,.teachers {
 		text-align: center;
+	}
+	.teachers {
+		
+		img {
+			height: 70%;
+		}
 	}
 	h3{
 		font-family:Roboto;
@@ -404,10 +407,11 @@ SLIDE 4
 		.row > div:last-of-type {
 		border-left: 0;
 		}
+		
 	}
 
   .login {
-    float: right;
+    float: left;
     margin-top: 6px;
     margin-right: 40px;
   }

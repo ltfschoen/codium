@@ -145,11 +145,11 @@ ActiveRecord::Schema.define(version: 20140320053433) do
     t.integer  "image_file_size"
     t.datetime "image_uploaded_at"
     t.string   "role"
-    t.string   "rss"
     t.string   "twitter"
     t.string   "github"
     t.string   "linkedin"
     t.string   "website"
+    t.string   "rss"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
