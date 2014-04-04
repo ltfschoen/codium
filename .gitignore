@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+#ignore the coverage folder, we don't really need that on github...
+/coverage
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

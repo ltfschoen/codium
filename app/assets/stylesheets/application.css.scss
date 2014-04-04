@@ -107,7 +107,7 @@ footer {
 @include stickyFooter(80px, '#wrap', 'footer');
 
 @media (max-width: 530px) {
-	
+
 	.login {
 		float: left;
 		margin-left: 10px;

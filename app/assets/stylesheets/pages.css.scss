@@ -265,12 +265,7 @@ h1 {
 /******************************
 SLIDE 2 
 *******************************/
-#slide2{
-	height:1000px ;
-	.info ul li{
-		font-size: 13px;
-	}
-}
+
 
 #stack {
 	margin-top: 6%;
@@ -280,30 +275,11 @@ SLIDE 2
 /******************************
 SLIDE 3 
 *******************************/
-#slide3{
-	background: image-url('wdistudents2014.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;  
-	.wrapper{
-		height:0;
-	}
-	h2 {
-		font-size: 50px;
-		text-transform: uppercase;
-		color: white;
-		text-align:center;
-		line-height: 70px;
-		font-weight: 400;
-		padding-bottom:0;
-		padding:20px;
-		border:10px solid #fff;
-	}
+
 	.text-quote{
 		positon:relative;
 		top:40%;
 	}
-}
 
 /******************************
 SLIDE 4 
@@ -331,10 +307,25 @@ SLIDE 4
 
 	.students,.teachers {
 		height: 300px;
+		h3 {
+			margin-top: 0;
+		}
+	}
+
+	.students {
+		h3{
+			margin-bottom: 50px;
+		}
 	}
 
 	.students,.teachers {
 		text-align: center;
+	}
+	.teachers {
+		
+		img {
+			height: 70%;
+		}
 	}
 	h3{
 		font-family:Roboto;
@@ -413,10 +404,11 @@ SLIDE 4
 		.row > div:last-of-type {
 		border-left: 0;
 		}
+		
 	}
 
   .login {
-    float: right;
+    float: left;
     margin-top: 6px;
     margin-right: 40px;
   }

@@ -77,12 +77,12 @@ ActiveRecord::Schema.define(version: 20140320053433) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
-    t.string   "url"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_uploaded_at"
+    t.text     "description"
+    t.string   "url"
   end
 
   create_table "recommendations", force: true do |t|
@@ -145,11 +145,11 @@ ActiveRecord::Schema.define(version: 20140320053433) do
     t.integer  "image_file_size"
     t.datetime "image_uploaded_at"
     t.string   "role"
-    t.string   "rss"
     t.string   "twitter"
     t.string   "github"
     t.string   "linkedin"
     t.string   "website"
+    t.string   "rss"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
