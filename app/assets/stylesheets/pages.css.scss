@@ -16,6 +16,18 @@ $i: 0;
 STUDENT PAGE STYLES 
 *******************************/
 
+a {
+	color: #333;
+	font-family: Roboto;
+	text-transform: uppercase;
+	font-weight: 400;
+	text-decoration: underline;
+	@include transition (color .2s ease-in-out);
+	&:hover {
+		color: #f03;
+	}
+}
+
 .students-container {
 
   .student-image-container {
@@ -188,15 +200,6 @@ nav ul li {
 	padding: 0 10px 0 10px;
 	font-size: 1.1em;
 	padding: 7px;
-}
-
-nav li a:link {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	color: red;
 }
 
 
