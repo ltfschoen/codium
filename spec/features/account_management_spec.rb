@@ -4,29 +4,30 @@ Warden.test_mode!
 
 feature "account management" do
 
-  context "when logged in with github" do
+ # github login has been descoped
+  # context "when logged in with github" do
 
-    let(:user) do
-      user = User.new(email: 'test@test.com')
-      user.username = 'epoch'
-      user.password = user.password_confirmation = 'password'
-      user.uid = '12345'
-      user.provider = 'github'
-      user.save
-      user
-    end
+  #   let(:user) do
+  #     user = User.new(email: 'test@test.com')
+  #     user.username = 'epoch'
+  #     user.password = user.password_confirmation = 'password'
+  #     user.uid = '12345'
+  #     user.provider = 'github'
+  #     user.save
+  #     user
+  #   end
 
-    before(:each) do
-      login_as(user, :scope => :user)
-    end
+  #   before(:each) do
+  #     login_as(user, :scope => :user)
+  #   end
 
-    scenario "view profile page" do
-      visit "/users/#{user.username}"
-      expect(page).to have_text(user.username)
-      expect(page).to have_link("Edit")
-    end    
+  #   scenario "view profile page" do
+  #     visit "/users/#{user.username}"
+  #     expect(page).to have_text(user.username)
+  #     expect(page).to have_link("Edit")
+  #   end    
 
-  end
+  # end
 
   context "when logged in" do
 
@@ -51,7 +52,7 @@ feature "account management" do
     scenario "view profile page" do
       visit "/users/#{user.username}"
       expect(page).to have_text(user.username)
-      expect(page).to have_link("Edit")
+      expect(page).to have_link("edit")
     end
 
   end

@@ -1,54 +1,80 @@
 <div class="page-content">
   <h2>Sign up</h2>
 
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-      <div class="form-group">
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :password %><br />
-        <%= f.password_field :password, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :given_name %><br />
-        <%= f.text_field :given_name, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :family_name %><br />
-        <%= f.text_field :family_name, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :username %><br />
-        <%= f.text_field :username, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :tagline %><br />
-        <%= f.text_field :tagline, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :bio %><br />
-        <%= f.text_area :bio, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div>
-        <%= f.label :image %> <br/>
-        <%= f.file_field :image %>
-      </div>
-    </div>
-      <div class="form-group">
-        <div>
-          <%= f.label 'Blog RSS Feed URL', :rss %> <br/>
-          <%= f.text_field :rss %>
-        </div>
-      </div>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-    <div><%= f.submit "Sign up", :class => "btn btn-primary" %></div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, :autofocus => true, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :given_name %><br />
+    <%= f.text_field :given_name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :family_name %><br />
+    <%= f.text_field :family_name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tagline %><br />
+    <%= f.text_field :tagline, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "LinkedIn Profile Link" %><br />
+    <%= f.text_field :linkedin, :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "Twitter Link" %><br />
+    <%= f.text_field :twitter, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Github Profile Link" %><br />
+    <%= f.text_field :github, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Portfolio Website Link" %><br />
+    <%= f.text_field :website, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %> <br/>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Blog RSS Feed URL', :rss %> <br/>
+    <%= f.text_field :rss %>
+  </div>
+
+  <div><%= f.submit "Sign up", :class => "btn btn-primary" %></div>
   <% end %>
 
   <%= render "devise/shared/links" %>

@@ -2,39 +2,22 @@ User.delete_all
 Post.delete_all
 Recommendation.delete_all
 
+wdi3_emails = %w(alberto.forn@gmail.com fede.tagliabue@gmail.com marcus.hoile@gmail.com lukru489@gmail.com peters.sammyjo@gmail.com emacca@me.com stalin.pranava@gmail.com eduard.fastovski@gmail.com ltfschoen@gmail.com cptnmrgn10@gmail.com lukemesiti@gmail.com)
 
-user = User.new
-user.email = 'test@test.com'
-user.password = user.password_confirmation = 'password'
-user.username = 'Test'
-user.rss = 'http://feeds.gizmodo.com.au/gizmodoaustralia'
-user.save
+wdi3_emails.each do |email|
+  first_part = email[/[^@]+/]
+  first_part = first_part.split('').map do |letter|
+    if letter.match(/\A[\w]+\z/)
+      letter
+    else
+      ''
+    end
+  end.join('')
 
-user2 = User.new
-user2.email = 'test2@test.com'
-user2.password = user2.password_confirmation = 'password'
-user2.username = 'Test2'
-user2.rss = 'http://www.sampeters.net/blog/feed'
-user2.save
-
-
-post = Post.new
-post.user = user
-post.title = 'test post'
-post.save
-
-
-post.title = 'Coding Is So Cool'
-post.subtitle = 'Ball tip flank pork belly pig short ribs capicola kielbasa shoulder cow brisket turkey t-bone chuck. Pork loin kielbasa capicola leberkas bacon jowl salami biltong venison landjaeger tongue pork belly flank andouille spare ribs.'
-post.save
-
-post2 = Post.new
-post2.user = user
-post2.title = 'Test Post Heading'
-post2.subtitle = 'Ball tip flank pork belly pig short ribs capicola kielbasa shoulder cow brisket turkey t-bone chuck. Pork loin kielbasa capicola leberkas bacon jowl salami biltong venison landjaeger tongue pork belly flank andouille spare ribs.'
-post2.save
-
-recommendation = Recommendation.new
-recommendation.user = user
-recommendation.post = post
-recommendation.save
+  User.create(
+    email: email,
+    username: first_part,
+    password: 'changeme',
+    password_confirmation: 'changeme'
+  )
+end

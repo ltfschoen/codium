@@ -20,7 +20,10 @@ rescue_from Pundit::NotAuthorizedError, :with => :unauthorized_error
     # tags
     params[:commit] == 'Publish' ? published = true : published = false
     params[:post][:published] = published
-    @post = current_user.posts.new(post_params)
+    # current_user id doesn't save when using current_user.posts.new
+    # @post = current_user.posts.build(post_params)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     
     respond_to do |format|
       if @post.save

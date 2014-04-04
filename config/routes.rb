@@ -5,6 +5,8 @@ Codium::Application.routes.draw do
   get '/jobs' => 'jobs#index'
   
 
+  resources :skills
+
   resources :posts do
   	resources :comments
   end

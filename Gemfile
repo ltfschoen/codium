@@ -36,6 +36,9 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+#fontawesome for icons and fonts
+gem "font-awesome-rails"
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -79,3 +82,10 @@ gem 'anemone'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Pagination
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
+
+# testing coverage checker
+gem 'simplecov'

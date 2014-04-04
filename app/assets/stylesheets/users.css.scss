@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.wrapper {
+.profile-page {
   width:90%;
   margin: 0 auto;
+  padding-bottom: 110px;
 }
 
 .studentinfo {
@@ -34,10 +35,26 @@
   text-align: justify;
 }
 
+.studentinfo a {
+  color: #000000;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: .25em;
+}
+.studentinfo a:visited {
+  color: #000000;
+}
+.studentinfo a:hover {
+  color: #339AB4;
+}
+.studentinfo a:active {
+  color: #CCC;
+}
+
 .projects {
   padding-top: 25px;
 }
 
-img {
+.grid-image {
   width: 100%;
 }

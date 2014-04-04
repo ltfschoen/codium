@@ -1,41 +1,44 @@
-<header>
-<%#= render 'shared/nav' %>
-</header>
+<div class="container-fluid profile-page">
+  <div class ="studentinfo clearfix">
+    <div>
+      <h2 class="studentinfo-title"><%= @user.given_name %> <%= @user.family_name %></h2>
+      <h3><%= @user.tagline %></h3>            
+    </div>
 
-<div class="container-fluid">
-  <div class="wrapper clearfix">
-      <div class ="studentinfo clearfix">
-        <div>
-            <h2 class="studentinfo-title"><%= @user.given_name %> <%= @user.family_name %></h2>
-            <h3>Subtitle</h3>            
-        </div>
+    <div class="row studentinfo">
+      <div class="col-md-4 col-sm-6">
+        <%= image_for_user(@user, :class => "grid-image") %>
+      </div>
 
-        <div class="row studentinfo">
-          <div class="col-md-4 col-sm-6">
-            <%= image_for_user(@user) %>
-          </div>
-        
-          <div class="col-md-8">
-            <p>Bio description goes here. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Blah blah blah. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+      <div class="col-md-8">
+        <p><%= @user.bio %></p>
 
-            <div class="social-links">
-              <i class="fa fa-linkedin-square" style="font-size:36px;"></i>&nbsp;
-              <i class="fa fa-github-square" style="font-size:36px;"></i>&nbsp;
-              <i class="fa fa-twitter-square" style="font-size:36px;"></i>&nbsp;
-              <i class="fa fa-desktop" style="font-size:33px;"></i><br><br>
-            </div>
-          </div>
-        </div>
-
-        <div class="row projects clearfix">
-        <% @projects.each do |project| %>
-          <div class="proj col-md-4">
-           <%= image_for_project(project) %>
-          </div>
+        <% if @user.linkedin? %>
+          <%= link_to "<i class=\"fa fa-linkedin-square\"></i>".html_safe, @user.linkedin, :target => "_blank" -%>
         <% end %>
-        </div>
 
+        <% if @user.github? %>
+          <%= link_to "<i class=\"fa fa-github-square\"></i>".html_safe, @user.github, :target => "_blank" -%>
+        <% end %>
+
+        <% if @user.twitter? %>
+          <%= link_to "<i class=\"fa fa-twitter-square\"></i>".html_safe, @user.twitter, :target => "_blank" -%>
+        <% end %>
+
+        <% if @user.website? %>
+          <%= link_to "<i class=\"fa fa-desktop\"></i>".html_safe, @user.website, :target => "_blank" -%>
+        <% end %>
       </div>
     </div>
-  </div>
+
+    <div class="row projects clearfix">
+      <% @projects.each do |project| %>
+      <div class="proj col-md-4">
+       <%= image_for_project(project, :class => "grid-image") %>
+     </div>
+     <% end %>
+   </div>
+
+ </div>
+</div>
 </div>

@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :recommendations
   has_many :comments
   has_many :memberships, foreign_key: "member_id"
+
+  has_many :users_skills, :dependent => :destroy # not need to preserve if user deleted
+  has_many :skills, :through => :users_skills
+
   has_many :projects, :through => :memberships
   has_many :post_members
   has_many :posts, :through => :post_members

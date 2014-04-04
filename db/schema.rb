@@ -94,9 +94,11 @@ ActiveRecord::Schema.define(version: 20140320053433) do
   end
 
   create_table "skills", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "skill_type"
   end
 
   create_table "taggings", force: true do |t|
@@ -142,12 +144,12 @@ ActiveRecord::Schema.define(version: 20140320053433) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_uploaded_at"
-    t.string   "role"
-    t.string   "rss"
     t.string   "twitter"
     t.string   "github"
     t.string   "linkedin"
     t.string   "website"
+    t.string   "role"
+    t.string   "rss"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -2,70 +2,94 @@
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-    <div class="form-group">
-      <%= devise_error_messages! %>
-    </div>
-
-    <div class="form-group">
-      <div><%= f.label :email %><br />
-        <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
-    </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div class="form-group">
-      <div><%= f.label :current_password %><br />
-        <%= f.password_field :current_password, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :password %><br />
-        <%= f.password_field :password, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :given_name %><br />
-        <%= f.text_field :given_name, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :family_name %><br />
-        <%= f.text_field :family_name, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :username %><br />
-        <%= f.text_field :username, :pattern => '^[A-Za-z0-9]+$', :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :tagline %><br />
-        <%= f.text_field :tagline, :class => "form-control" %></div>
-    </div>
-    <div class="form-group">
-      <div><%= f.label :bio %><br />
-        <%= f.text_area :bio, :class => "form-control" %></div>
-    </div>
+  <div class="form-group">
+    <%= devise_error_messages! %>
   </div>
-    <div class="form-group">
-      <div>
-        <%= f.label 'Blog RSS Feed URL', :rss %> <br/>
-        <%= f.text_field :rss %>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <div>
-        <%= f.label :image %> <br/>
-        <%= f.file_field :image %>
-      </div>
-      <div>
-        <%= image_for_user(@user) %>
-      </div>
-    </div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, :autofocus => true, :class => "form-control" %>
+  </div>
 
-    <div><%= f.submit "Update" %></div>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :current_password %><br />
+    <%= f.password_field :current_password, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "New password" %><br />
+    <%= f.password_field :password, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :given_name %><br />
+    <%= f.text_field :given_name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :family_name %><br />
+    <%= f.text_field :family_name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, :pattern => '^[A-Za-z0-9]+$', :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tagline %><br />
+    <%= f.text_field :tagline, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "LinkedIn Profile Link" %><br />
+    <%= f.text_field :linkedin, :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "Twitter Link" %><br />
+    <%= f.text_field :twitter, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Github Profile Link" %><br />
+    <%= f.text_field :github, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Portfolio Website Link" %><br />
+    <%= f.text_field :website, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Blog RSS Feed Url" %> <br/>
+    <%= f.text_field :rss %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %> <br/>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= image_for_user(@user, :class => "grid-image") %>
+  </div>
+
+  <div><%= f.submit "Update" %></div>
   <% end %>
 
   <h3>Cancel my account</h3>

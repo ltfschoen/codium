@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user! #, except: [:profile, :index]
+  skip_before_action :authenticate_user!, only: [:profile, :index]
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_current_user, only: [:profile]
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email,:password,:password_confirmation,:username,:given_name,:family_name,:tagline,:bio)
+    params.require(:user).permit(:email,:password,:password_confirmation,:username,:given_name,:family_name,:tagline,:bio, :twitter, :linkedin, :github, :website, :rss)
   end
 
   def unauthorized_error

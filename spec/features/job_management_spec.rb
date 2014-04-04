@@ -2,54 +2,57 @@ require 'spec_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-feature "jobs management" do
+# -------- job creation has been descoped --------------
+# -------- use job feeds from indeed instead ------------
 
-  context "when logged in" do
+# feature "jobs management" do
 
-    let(:user) do
-      user = User.new(email: 'test@test.com')
-      user.username = 'epoch'
-      user.password = user.password_confirmation = 'password'
-      user.save
-      user
-    end
+#   context "when logged in" do
 
-    before(:each) do
-      login_as(user, :scope => :user)
-    end
+#     let(:user) do
+#       user = User.new(email: 'test@test.com')
+#       user.username = 'epoch'
+#       user.password = user.password_confirmation = 'password'
+#       user.save
+#       user
+#     end
 
-    scenario "create job" do
-      visit new_user_job_path(user)
-      fill_in "Name", :with => "ruby dev"
-      click_button "Create a Job"
+#     before(:each) do
+#       login_as(user, :scope => :user)
+#     end
 
-      expect(page).to have_text("Successfully created Job")
-    end
+#     scenario "create job" do
+#       visit new_user_job_path(user)
+#       fill_in "Name", :with => "ruby dev"
+#       click_button "Create a Job"
 
-    scenario "list all project" do
-      Job.create(name: 'ruby dev')
-      Job.create(name: 'rails dev')
+#       expect(page).to have_text("Successfully created Job")
+#     end
 
-      visit jobs_path
+#     scenario "list all project" do
+#       Job.create(name: 'ruby dev')
+#       Job.create(name: 'rails dev')
 
-      expect(page).to have_text("ruby dev")
-      expect(page).to have_text("rails dev")
-      expect(page).to have_link("Add a Job")
-    end
-  end
+#       visit jobs_path
 
-  context "when logged out" do
+#       expect(page).to have_text("ruby dev")
+#       expect(page).to have_text("rails dev")
+#       expect(page).to have_link("Add a Job")
+#     end
+#   end
 
-    scenario "list all jobs" do
-      Job.create(name: 'ruby dev')
-      Job.create(name: 'rails dev')
+#   context "when logged out" do
 
-      visit jobs_path
+#     scenario "list all jobs" do
+#       Job.create(name: 'ruby dev')
+#       Job.create(name: 'rails dev')
 
-      expect(page).to have_text("ruby dev")
-      expect(page).to have_text("rails dev")
-    end
+#       visit jobs_path
 
-  end
+#       expect(page).to have_text("ruby dev")
+#       expect(page).to have_text("rails dev")
+#     end
 
-end  
+#   end
+
+# end  
