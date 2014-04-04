@@ -1,10 +1,10 @@
 <%if @project.id.present? %>
-<p><strong>Add Member: </strong><button id="show" class="btn btn-default">add member</button></p>
+<p><button id="show" class="btn btn-info">Add members to this project</button></p>
 <dialog id="window" class="userlists"> 
   <span class="exit">X</span>
-  <ul>
+  <ul class="memberEdit">
     <% @users.each do |user| %>
-    <li><%= user.username %> 
+    <li><%= image_tag user.image, :width => 20, :height => 20 %> <%= user.username %>
 
       <span class=<%="user_#{user.id}"%>>
 
@@ -16,7 +16,7 @@
         html:{ 
           id:"remove_#{user.id}"
         } do |f| %>
-        <%= f.submit "remove member", id: "remove", :class => "btn btn-default" %>
+        <%= f.submit "remove member", id: "remove", :class => "btn btn-danger btn-xs" %>
         <% end %>
 
         <% end %>
@@ -29,7 +29,7 @@
         } do |f| %>
         <%= f.hidden_field :project_id, value: @project.id  %>
         <%= f.hidden_field :member_id, value: user.id  %>
-        <%= f.submit "add as member", id: "add", :class => "btn btn-default" %>
+        <%= f.submit "add as member", id: "add", :class => "btn btn-default btn-xs" %>
         <% end %>
 
       </span>
@@ -69,7 +69,7 @@
 </div>
 <p></p>
 <div class="form-group">
- <%= f.submit "Create", :class => "btn btn-default" %>
+ <%= f.submit "Submit", :class => "btn btn-default" %>
 </div>
 
 <% end %>

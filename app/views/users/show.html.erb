@@ -50,7 +50,7 @@
                   <% end %> <!-- end project members count -->
                   <%= link_to 'Go To Website', project.url, :class => 'btn btn-xs btn-default'  %>
                     <% if project.members.include?(current_user) %>
-                    <%= link_to 'Modify Project', project_path(project), :class => 'btn btn-xs btn-warning' %>
+                    <%= link_to 'Modify Project', edit_project_path(project), :class => 'btn btn-xs btn-warning' %>
                     <% end %>
                 </div>
                 </div>
