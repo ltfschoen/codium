@@ -1,3 +1,4 @@
+
 <div class="container-fluid profile-page">
   <div class ="studentinfo clearfix">
     <div>
@@ -31,14 +32,26 @@
       </div>
     </div>
 
-    <div class="row projects clearfix">
+    <h2>Projects</h2>
+    <div class="row projects clearfix" >
       <% @projects.each do |project| %>
-      <div class="proj col-md-4">
-       <%= image_for_project(project, :class => "grid-image") %>
-     </div>
-     <% end %>
-   </div>
+      <div class="proj col-sm-4">
+        <a href="<%= project.url %>"><%= image_for_project(project, class: "grid-image") %></a>
+      </div>
+      <div class="proj col-sm-8">
+        <%= link_to project.name, project.url %>
+        <p><%= project.description %></p>
+        <% if project.members.count > 1 %>
+        <h4>Project Team</h4>
+        <% project.members.each do |member| %>
+        <%= link_to member.username, user_path(member) %> 
+        <% end %>
+        <% end %>
+      </div>
 
- </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>
 </div>

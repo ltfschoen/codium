@@ -14,8 +14,9 @@ gem 'friendly_id'
 
 # for testing
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.1'
   gem 'capybara'
+  gem 'shoulda-matchers'
   gem 'mocha'
 end
 

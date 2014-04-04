@@ -203,12 +203,35 @@ a:hover {
 /******************************
 SLIDE 1 
 *******************************/
-#slide1{
-	background: image-url('home-background.jpg');
-	background-repeat: no-repeat;  
-	background-size: cover;
-	height:100%;
-	-webkit-filter: grayscale(100%);
+// #slide1{
+// 	background: image-url('home-background.jpg');
+// 	background-repeat: no-repeat;  
+// 	background-size: cover;
+// 	height:100%;
+// 	-webkit-filter: grayscale(100%);
+// }
+
+.header {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: image-url('home-background.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.class-shot {
+  display: table;
+  height: 600px;
+  width: 100%;
+  background: image-url('wdistudents2014.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h1 {
@@ -382,6 +405,12 @@ SLIDE 4
 		border-left: 0;
 		}
 	}
+
+  .login {
+    float: right;
+    margin-top: 6px;
+    margin-right: 40px;
+  }
 }
 
 

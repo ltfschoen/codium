@@ -1,201 +1,178 @@
-<div class="slide" id="slide1" data-stellar-background-ratio="0.5">
+<section class="header">
 
-	<div class="wrapper" data-stellar-ratio="2">
+	
 
 		<div id="heading">	
 			<h1>WDI Sydney 2014</h1>
 		</div> 
 
-	</div>
+	
 	
 
-</div><!--End Slide 1-->
+</section><!--End Slide 1-->
 
 <%= render 'shared/nav' %>
 
-<script>
-$(document).ready(function(){
-	var $affixTop = $('#affix');
-	var $imageHeight = $('#slide1').height();
 
-	$(window).on('scroll', function(){
-		if (this.scrollY >= $imageHeight) {
-			$affixTop.slideDown(200);
-		}
-		if (this.scrollY <= $imageHeight) {
-			$affixTop.hide();
-		}	
-	});
-});
-</script>
-
-<script>
-$(document).ready(function(){
-	$('html, body').animate({ scrollTop: 0 }, 'slow');
-});
-</script>
 
 <style>
 #affix { display: none; position: fixed; top: 0;}
 </style>
 
 
-<div class="slide" id="slide2" data-stellar-background-ratio="0">
-	<div  data-stellar-ratio="1"> 
-		<div id="stack" class="container-fluid">
-			<h2>The Stack</h2>
-			<div class="row">
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-0">
-					<%= image_tag('ruby.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Ruby</h3>
-						<ul>
-							<li>Learn the fundamentals of object-oriented programming with Ruby by using variables, operators, conditionals, loops, methods, classes, and module</li>
-							<li>Research and implement Ruby gems to expand functionality</li>
-						</ul>
-					</div>
+<section>
+	<div id="stack" class="container-fluid">
+		<h2>The Stack</h2>
+		<div class="row">
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-0">
+				<%= image_tag('ruby.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Ruby</h3>
+					<ul>
+						<li>Learn the fundamentals of object-oriented programming with Ruby by using variables, operators, conditionals, loops, methods, classes, and module</li>
+						<li>Research and implement Ruby gems to expand functionality</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-1">
-					<%= image_tag('html5.svg', size: "250x250") %>
-					<div class="info">
-						<h3>HTML5</h3>
-						<ul>
-							<li>Practice the user-facing building blocks of the web: HTML tags</li>
-							<li>Implementation and exposure to new syntactic features such as vide, audio and canvas.</li>
-							<li>SVG usage and exposure</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-1">
+				<%= image_tag('html5.svg', size: "250x250") %>
+				<div class="info">
+					<h3>HTML5</h3>
+					<ul>
+						<li>Practice the user-facing building blocks of the web: HTML tags</li>
+						<li>Implementation and exposure to new syntactic features such as vide, audio and canvas.</li>
+						<li>SVG usage and exposure</li>
+					</ul>
 				</div>
-				
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-2">
-					<%= image_tag('javascript.svg', size: "250x250") %>
-					<div class="info">
-						<h3>JavaScript</h3>
-						<ul>
-							<li>Integrate JavaScript into Rails apps</li>
-							<li>Create interactive web pages including mouse, scroll, and keyboard event</li>
-							<li> Manipulate the DOM with events and animations with pure JavaScript</li>
-						</ul>
-					</div>
-				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-3">
-					<%= image_tag('json.svg', size: "250x250") %>
-					<div class="info">
-						<h3>JSON</h3>
-						<ul>
-							<li>Write JavaScript (JS) that allows the browser to communicate with the server without reloading the current page, to do things like validate or save form input and refresh images.</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-2">
+				<%= image_tag('javascript.svg', size: "250x250") %>
+				<div class="info">
+					<h3>JavaScript</h3>
+					<ul>
+						<li>Integrate JavaScript into Rails apps</li>
+						<li>Create interactive web pages including mouse, scroll, and keyboard event</li>
+						<li> Manipulate the DOM with events and animations with pure JavaScript</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-4">
-					<%= image_tag('jquery.svg', size: "250x250") %>
-					<div class="info">
-						<h3>jQuery</h3>
-						<ul>
-							<li>Write JavaScript that allows the browser to communicate with the server without reloading the current page.</li>
-							<li>Trigger front-end events that interact with databases and integrate with Rails applications</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-3">
+				<%= image_tag('json.svg', size: "250x250") %>
+				<div class="info">
+					<h3>JSON</h3>
+					<ul>
+						<li>Write JavaScript (JS) that allows the browser to communicate with the server without reloading the current page, to do things like validate or save form input and refresh images.</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-5">
-					<%= image_tag('tests.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Test Driven Development</h3>
-						<ul>
-							<li>Build functionality based on tests by applying test-driven development techniques (TDD/BDD)</li>
-							<li> Test Driven Development techniques (TDD/BDD) using RSpec.</li>
-							<li>Write unit tests, functional tests and integration tests.</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-4">
+				<%= image_tag('jquery.svg', size: "250x250") %>
+				<div class="info">
+					<h3>jQuery</h3>
+					<ul>
+						<li>Write JavaScript that allows the browser to communicate with the server without reloading the current page.</li>
+						<li>Trigger front-end events that interact with databases and integrate with Rails applications</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-6">
-					<%= image_tag('comp-sci.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Computer Science</h3>
-						<ul>
-							<li>Build programs using the appropriate data structures and algorithms to optimize for performance</li>
-							<li>Put skills to the test with in-class coding challenge</li>
-							<li>Differentiate between various data structures and their purpose </li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-5">
+				<%= image_tag('tests.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Test Driven Development</h3>
+					<ul>
+						<li>Build functionality based on tests by applying test-driven development techniques (TDD/BDD)</li>
+						<li> Test Driven Development techniques (TDD/BDD) using RSpec.</li>
+						<li>Write unit tests, functional tests and integration tests.</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-7">
-					<%= image_tag('github.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Github</h3>
-						<ul>
-							<li>Implement Git as a source control system by pushing, pulling, and merging code</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-6">
+				<%= image_tag('comp-sci.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Computer Science</h3>
+					<ul>
+						<li>Build programs using the appropriate data structures and algorithms to optimize for performance</li>
+						<li>Put skills to the test with in-class coding challenge</li>
+						<li>Differentiate between various data structures and their purpose </li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-8">
-					<%= image_tag('rails.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Rails</h3>
-						<ul>
-							<li>Understand the concepts behind an MVC, how models work, what belongs in a controller, and how it all fits together</li>
-							<li>Build custom apps by integrating models with databases, routing techniques, controller logic, and user-friendly views.</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-7">
+				<%= image_tag('github.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Github</h3>
+					<ul>
+						<li>Implement Git as a source control system by pushing, pulling, and merging code</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-9">
-					<%= image_tag('backbone.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Backbone</h3>
-						<ul>
-							<li>Organize our javascript projects into models, controllers and views.</li>
-							<li>A javascript framework that gave students the freedom to design a full user experience in javascript for the user.</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-8">
+				<%= image_tag('rails.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Rails</h3>
+					<ul>
+						<li>Understand the concepts behind an MVC, how models work, what belongs in a controller, and how it all fits together</li>
+						<li>Build custom apps by integrating models with databases, routing techniques, controller logic, and user-friendly views.</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-10">
-					<%= image_tag('css3.svg', size: "250x250") %>
-					<div class="info">
-						<h3>CSS3</h3>
-						<ul>
-							<li>Used new cutting edge CSS3 properties to transform and style our projects.</li>
-							<li>Festures such as 2D/3D animations, transitions, Animations, Box Model, Background and Image effects.</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-9">
+				<%= image_tag('backbone.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Backbone</h3>
+					<ul>
+						<li>Organize our javascript projects into models, controllers and views.</li>
+						<li>A javascript framework that gave students the freedom to design a full user experience in javascript for the user.</li>
+					</ul>
 				</div>
+			</div>
 
-				<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-11">
-					<%= image_tag('sass.svg', size: "250x250") %>
-					<div class="info">
-						<h3>Sass</h3>
-						<ul>
-							<li>Asset pipeline</li>
-							<li>Mixins</li>
-							<li>Variables</li>
-						</ul>
-					</div>
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-10">
+				<%= image_tag('css3.svg', size: "250x250") %>
+				<div class="info">
+					<h3>CSS3</h3>
+					<ul>
+						<li>Used new cutting edge CSS3 properties to transform and style our projects.</li>
+						<li>Festures such as 2D/3D animations, transitions, Animations, Box Model, Background and Image effects.</li>
+					</ul>
 				</div>
-				
+			</div>
+
+			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-11">
+				<%= image_tag('sass.svg', size: "250x250") %>
+				<div class="info">
+					<h3>Sass</h3>
+					<ul>
+						<li>Asset pipeline</li>
+						<li>Mixins</li>
+						<li>Variables</li>
+					</ul>
+				</div>
 			</div>
 
 		</div>
+
 	</div>
 
-</div><!--End Slide 2-->
+</section> <!-- end slide 2 -->
 
 
-<div class="slide" id="slide3" data-stellar-background-ratio="0">
-	<div class="wrapper text-quote" data-stellar-ratio="1"> 
+<section class="class-shot">
 		<h2><strong>The team</strong></br>Nick : : Alberto : : Federico : : Ed : : Lauren : : Emily : : Luke M : : Sam : : Luke S : : Pranava : : Marcus</h2>
 	</div>
 
-</div><!--End Slide 3-->
+</section><!--End Slide 3-->
 
-<div class="slide" id="slide4" data-stellar-background-ratio="0">
+<section>
 	
 	<div  class="clearfix">
 		<div id="home-section4" class="container-fluid clearfix">
@@ -220,7 +197,7 @@ $(document).ready(function(){
 	
 
 
-</div><!--End Slide 4-->
+</section><!--End Slide 4-->
 
 
 
@@ -234,6 +211,27 @@ $(".skillbox").mouseleave(function() {
 	$(this).children('.info').first().animate({marginTop: '+=240px'}, 700);
 	$(this).removeClass('img-grey');
 	$(this).addClass('img-color');
+});
+</script>
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+	var $imageHeight = $('#slide1').height();
+
+	$(window).on('scroll', function(){
+		if (this.scrollY >= $imageHeight) {
+			$affixTop.slideDown(200);
+		}
+		if (this.scrollY <= $imageHeight) {
+			$affixTop.hide();
+		}	
+	});
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	$('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 </script>
 

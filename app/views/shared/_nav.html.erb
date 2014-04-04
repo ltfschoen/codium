@@ -32,9 +32,9 @@
 
 <div class="notices">
   <% if notice || alert || flash[:error] %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <p class="error"><%= flash[:error] %></p>
+  <p class="text-notice"><%= notice %></p>
+  <p class="text-alert"><%= alert %></p>
+  <p class="text-danger"><%= flash[:error] %></p>
   <% end %>
 </div>
 </nav>

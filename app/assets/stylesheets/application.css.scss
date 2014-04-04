@@ -24,21 +24,12 @@ html, body {
 }
 
 
-#wrap{
-	min-height: 100%;
-	margin-bottom: 80px;
-
-}
-
 footer {
 	background-color: #2ecc71;
-	height: 80px;
 	position: relative;
 	bottom: 0;
-	margin-top: -80px;
 	width: 100%;
 	clear:both;
-	padding-top:10px;
 	text-align: center;
 }
 
@@ -70,10 +61,10 @@ footer {
 	float: right;
 	margin-right: 70px;
 	margin-top: 3px;
-	
 	p {
 		margin: 0;
 		padding: 0;
+        margin-top: 3px;
 	}
 }
 
@@ -87,6 +78,33 @@ footer {
 	margin:0 auto;
 	padding-bottom: 80px;
 }
+
+
+
+@mixin stickyFooter($footerHeight, $wrapSelector, $footerSelector) {
+  html, body {
+    height: 100%;
+  }
+
+  #{$wrapSelector} {
+    min-height: 100%; /* equal to footer height */
+    margin-bottom: -$footerHeight;
+    &:after {
+      content: "";
+      display: block;
+    }
+  }
+
+  #{$footerSelector}, #{$wrapSelector}:after {
+    /* .push must be the same height as footer */
+    height: $footerHeight;
+    padding-top: 10px;
+  }
+}
+
+
+
+@include stickyFooter(80px, '#wrap', 'footer');
 
 @media (max-width: 530px) {
 	
