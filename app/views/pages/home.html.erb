@@ -13,10 +13,17 @@
 
 <%= render 'shared/nav' %>
 
-<section>
+
+<style>
+#affix { display: none; position: fixed; top: 0;}
+</style>
+
+
+<section id="slide2">
+
 	<div id="stack" class="container-fluid">
 		<h2>The Stack</h2>
-		<div class="row">
+		<div class="row" id="skills-container">
 			<div class="skillbox col-md-3  col-sm-4 col-xs-6 box-0">
 				<%= image_tag('ruby.svg', size: "250x250") %>
 				<div class="info">
@@ -160,9 +167,6 @@
 
 
 <section class="class-shot">
-		<h2 id="class-shot-title">The team</h2>
-		<h2>Nick : : Alberto : : Federico : : Ed : : Lauren : : Emily : : Luke M : : Sam : : Luke S : : Pranava : : Marcus</h2>
-	</div>
 
 
 </section><!--End Slide 3-->
@@ -214,6 +218,8 @@ $(".skillbox").mouseleave(function() {
 $(document).ready(function(){
 	var $affixTop = $('#affix');
 	var $imageHeight = $('.header').height();
+	var $body = $('body');
+	var $heading = $('#heading');
 
 	$(window).on('scroll', function(){
 		if (this.scrollY >= $imageHeight) {
@@ -222,6 +228,11 @@ $(document).ready(function(){
 		if (this.scrollY <= $imageHeight) {
 			$affixTop.hide();
 		}	
+		if ($body.scrollTop() > 800) {
+			$heading.css('display', 'none');
+		} else if ($body.scrollTop() <= 800) {
+			$heading.css('display', 'block');
+		}
 	});
 });
 </script>

@@ -12,77 +12,65 @@ $i: 0;
 }
 
 
-/******************************
-STUDENT PAGE STYLES 
-*******************************/
+// /******************************
+// STUDENT PAGE STYLES
+// *******************************/
 
-a {
-	color: #333;
-	font-family: Roboto;
-	text-transform: uppercase;
-	font-weight: 400;
-	text-decoration: underline;
-	@include transition (color .2s ease-in-out);
-	&:hover {
-		color: #f03;
-	}
-}
+// .students-container {
 
-.students-container {
+//   .student-image-container {
+//     position: relative;
+//     overflow: hidden;
+//     height: 250px;
+//   }
+//   .student-image {
+//     width: 100%;
+//   }
 
-  .student-image-container {
-    position: relative;
-    overflow: hidden;
-    height: 250px;
-  }
-  .student-image {
-    width: 100%;
-  }
+// 	.student-image {
+// //		height: 300px;
+// //		position: relative;
+// //		padding: 0;
+// //		background-size: cover;
+// 		-webkit-filter: grayscale(1);
+// 		transition: 1s;
 
-	.student-image {
-//		height: 300px;
-//		position: relative;
-//		padding: 0;
-//		background-size: cover;
-		-webkit-filter: grayscale(1);
-		transition: 1s;
+// 		&:hover {
+// 			-webkit-filter: grayscale(0);
+// 			transition: 1s;
+// 		}
 
-		&:hover {
-			-webkit-filter: grayscale(0);
-			transition: 1s;
-		}
-
-		.name a, .title a{
-			color: black;
-			background-color:transparent;
-			&:hover{
-				color:#2ecc71;
-				text-decoration: none;
-			}
-		}
+// 		.name a, .title a{
+// 			color: black;
+// 			background-color:transparent;
+// 			&:hover{
+// 				color:#2ecc71;
+// 				text-decoration: none;
+// 			}
+// 		}
 		
-		.name {
-			position:relative;
-			margin: 5px 0 2px 10px;
-		}
+// 		.name {
+// 			position:relative;
+// 			margin: 5px 0 2px 10px;
+// 		}
 
-		.title {
-			position: relative;
-			margin-left: 10px;
-			font-size: 1.2em;
-		}
+// 		.title {
+// 			position: relative;
+// 			margin-left: 10px;
+// 			font-size: 1.2em;
+// 		}
 
-		.place {
-			background-color: rgba(255,255,255,0.5);
-			position:absolute;
-			bottom: 0;
-			width: 100%;
-			padding: 0;
-		}
+// 		.place {
+// 			background-color: rgba(255,255,255,0.5);
+// 			position:absolute;
+// 			bottom: 0;
+// 			width: 100%;
+// 			padding: 0;
+// 		}
 
-	}
+// 	}
 
-}
+// }
 
 
 h2 { 
@@ -101,27 +89,27 @@ h2 {
   clear: both;
 }
 
-.slide {
-	background-attachment: fixed;
-	width:100%;
-	height:100%;
-	position: relative;
-}
+// .slide {
+// 	background-attachment: fixed;
+// 	width:100%;
+// 	height:100%;
+// 	position: relative;
+// }
 
-.wrapper{
-	width:80%;
-	height:100%;
-	margin:0 auto;
-	position:relative;
-}
-.slideno{
-	position:absolute;
-	bottom:0px;
-	left:0px;
-	font-size:100px;
-	font-weight:bold;
-	color:rgba(255,255,255,0.3);
-}
+// .wrapper{
+// 	width:80%;
+// 	height:100%;
+// 	margin:0 auto;
+// 	position:relative;
+// }
+// .slideno{
+// 	position:absolute;
+// 	bottom:0px;
+// 	left:0px;
+// 	font-size:100px;
+// 	font-weight:bold;
+// 	color:rgba(255,255,255,0.3);
+// }
 
 
 .skillbox {
@@ -206,20 +194,11 @@ nav ul li {
 /******************************
 SLIDE 1 
 *******************************/
-// #slide1{
-// 	background: image-url('home-background.jpg');
-// 	background-repeat: no-repeat;  
-// 	background-size: cover;
-// 	height:100%;
-// 	-webkit-filter: grayscale(100%);
-// }
 
 .header {
   display: table;
-  z-index:-1;
   height: 100%;
   width: 100%;
-  position: relative;
   background: image-url('home-background.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -233,12 +212,10 @@ SLIDE 1
   width: 100%;
   padding-top:20px;
   color: #fff;
-  
   background: image-url('wdistudents2014.jpg') no-repeat fixed; 
-  // background-position: 50% 30%;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
   background-size: 100%;
 }
 
@@ -252,13 +229,13 @@ h1 {
 	text-transform: uppercase;
 	color: white;
 	text-align:center;
-	position:fixed;  
+	position:fixed; 
+	z-index:0; 
 	top:50%;  
 	left:50%;  
 	width:500px;  
 	margin-top:-41px;
 	margin-left:-223px;  
-	z-index:0;
 	border:10px solid #fff;
 	font-family: "Roboto";
 	font-weight:900;
@@ -269,6 +246,10 @@ h1 {
 SLIDE 2 
 *******************************/
 
+#slide2 {
+	position:relative;
+	z-index: 1;
+}
 
 #stack {
 	margin-top: 6%;
@@ -279,10 +260,6 @@ SLIDE 2
 SLIDE 3 
 *******************************/
 
-	.text-quote{
-		positon:relative;
-		top:40%;
-	}
 
 /******************************
 SLIDE 4 
@@ -344,12 +321,6 @@ SLIDE 4
 	padding-top:10%;
 }
 
-
-// #slide4 .parallaxbg {
-// position:absolute;
-// font-size:28px;
-// color:rgba(51,51,51,0.3);
-// }
 
 .glyphicon-user {
 	font-size: 12em;
