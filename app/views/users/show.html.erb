@@ -37,17 +37,21 @@
             <h2> My work </h2>
             <% @projects.each do |project| %>
                 <div class="proj col-md-4 col-sm-6 col-xs-12">
-                  <%= image_for_project(project, :class => "grid-image") %>
+                  <%= link_to image_for_project(project, :class => "grid-image"), project_url %>
                   <div class="project-text">
-                  <h3><%= project.name %></h3>
+                  <h3><%= link_to project.name, project.url %></h3>
                   <p><%= truncate(project.description, length: 250){ link_to "read more...", project_path(project) } %></p>
-                  <% if project.members.present? %>
-                      <strong>Owned by:</strong><br />
+                  <% if project.members.present? && project.members.count <= 1 %>
+                  <% else %>
+                      <strong>Collaborators:</strong><br />
                       <% project.members.each do |member| %>
-                          <%= link_to member.given_name, user_path(member) %>
-                      <% end %>
-                  <% end %><br />
-                  <%= link_to 'Project Details', project_path(project), :class => 'btn btn-xs btn-default' %> <%= link_to 'Go To Website', project.url, :class => 'btn btn-xs btn-default'  %>
+                      <%= link_to member.given_name, user_path(member) %>
+                  <% end %><br /><br /> <!-- end iteration through members -->
+                  <% end %> <!-- end project members count -->
+                  <%= link_to 'Go To Website', project.url, :class => 'btn btn-xs btn-default'  %>
+                    <% if project.members.include?(current_user) %>
+                    <%= link_to 'Modify Project', edit_project_path(project), :class => 'btn btn-xs btn-warning' %>
+                    <% end %>
                 </div>
                 </div>
             <% end %>

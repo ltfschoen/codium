@@ -1,7 +1,35 @@
 
 <div class="page-content">
-<h2>projects list</h2>
+<h2>Projects built by WDI students</h2>
 
 <% @projects.each do |project| %>
-  <p><%= link_to project.name, project %></p>
-<% end %></div>
+
+  <div class="col-sm-4">
+  <%= link_to image_for_project(project, :class => "grid-image"), project.url %>
+  <div class="project_description">
+  <h4><%= link_to project.name, project.url %></h4>
+  <p>By
+    <% if project.members.count === 1 %>
+        <%= link_to project.members.first.given_name, user_path(project.members.first) %>
+    <% end %>
+
+    <% if project.members.count > 1 %>
+        <% project.members.each do |member| %>
+            <% if member === project.members.last %>
+                and <%= link_to member.given_name, user_path(member) %>.
+            <% else %>
+                <%= link_to member.given_name, user_path(member) %>,
+             <% end %>
+        <% end %>
+    <% end %>
+  </p>
+  </div>
+  </div>
+
+
+
+<% end %>
+
+
+
+</div>
