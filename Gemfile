@@ -90,3 +90,7 @@ gem 'will_paginate-bootstrap'
 # testing coverage checker
 gem 'simplecov'
 gem 'rails_12factor'
+
+# test if internet connection present
+gem 'net-ping', '~> 1.7.3'
+require 'net/ping'
