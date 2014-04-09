@@ -1,12 +1,15 @@
 <div id="wrap">
   <%= render 'shared/nav' %>
 
-  <div class="container-fluid">
+  <h2>Blogfeed</h2>
+  <div class="page-content clear-top">
     <% @allitems.each do |item| %>
-        <h4>By <%= item[:dc_creator] %> on <%= item[:channel] %></h4>
-        <h5><%= raw item[:title] %></h5>
-        <h6>Posted <%= item[:pubDate].strftime("%b %d %Y %I:%m%p") %></h6>
-        <p><%= raw item[:description] %></p>
+        <div class="blogpost">
+            <h3><strong><%= raw item[:title] %></strong></h3>
+            <h5>By <%= item[:dc_creator] %> on <%= item[:channel] %></h5>
+            <h6>Posted <%= item[:pubDate].strftime("%b %d %Y %I:%m%p") %></h6>
+            <p><%= raw item[:description] %></p>
+        </div>
     <% end %>
   </div>
 
