@@ -1,5 +1,11 @@
+<style>
+#affix { display: block; position: fixed; top: 0;}
+</style>
+
 <div id="wrap">
   <%= render 'shared/nav' %>
+
+<br><br><br><br>
 
   <div class="container-fluid">
     <% @allitems.each do |item| %>
@@ -12,3 +18,9 @@
 
 
 </div>
+
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+});
+</script>

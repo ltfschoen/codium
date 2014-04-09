@@ -1,4 +1,11 @@
+<style>
+#affix { display: block; position: fixed; top: 0;}
+</style>
+
 <div class="page-content clear-top">
+
+<br><br><br>
+
   <h2>Job Listing</h2>
   <% @jobs.each do |job| %>
     <div class="job">
@@ -10,6 +17,11 @@
   <div class="center-text"><%= will_paginate @paginator, renderer: BootstrapPagination::Rails %></div>
 </div>
 
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+});
+</script>
 
 
 
