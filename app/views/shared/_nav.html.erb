@@ -36,12 +36,12 @@
   <p class="text-danger"><%= flash[:error] %></p>
   <% end %>
 
-  <!-- loading notice for clicking key links in nav -->
-  <p id="home_loading_notice">Returning to welcome page. Please wait ...</p>
-  <p id="student_loading_notice">Loading students page. Please wait ...</p>
-  <p id="job_loading_notice">Loading job listing. Please wait ...</p>
-  <p id="blog_loading_notice">Loading blog feed. Please wait ...</p>
-  <p id="project_loading_notice">Loading project list. Please wait ...</p>
+  <!-- loading notice is included in the inner HMTL of the below when user clicks links in nav -->
+  <p id="home_loading_notice"></p>
+  <p id="student_loading_notice"></p>
+  <p id="job_loading_notice"></p>
+  <p id="blog_loading_notice"></p>
+  <p id="project_loading_notice"></p>
 
 </div>
 </nav>
@@ -56,7 +56,7 @@
 
 	// show 'returning home...' notice when user clicks home link
 	$('#home_loading').on('mousedown', function(){
-	  $('#home_loading_notice').show();
+	  $('#home_loading_notice').show().html('Returning to welcome page. Please wait ...');
 	  // hide notices associated with the other links
 	  $('#student_loading_notice').hide();
 	  $('#job_loading_notice').hide();
@@ -66,7 +66,7 @@
 
 	// show 'loading student ...' notice when user clicks student link
 	$('#student_loading').on('mousedown', function(){
-	  $('#student_loading_notice').show();
+	  $('#student_loading_notice').show().html('Loading students page. Please wait ...');
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#job_loading_notice').hide();
@@ -76,7 +76,7 @@
 
 	// show 'loading job feed...' notice when user clicks jobs link
 	$('#job_loading').on('mousedown', function(){
-	  $('#job_loading_notice').show();
+	  $('#job_loading_notice').show().html('Loading job listing. Please wait ...');
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#student_loading_notice').hide();
@@ -86,7 +86,7 @@
 
 	// show 'loading blog feed...' notice when user clicks blogs link
 	$('#blog_loading').on('mousedown', function(){
-	  $('#blog_loading_notice').show();
+	  $('#blog_loading_notice').show().html('Loading blog feed. Please wait ...');
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#student_loading_notice').hide();
@@ -97,7 +97,7 @@
 	// show 'loading project ...' notice when user clicks project link 
 	// important note: class used for project as there are two links
 	$('.project_loading').on('mousedown', function(){
-	  $('#project_loading_notice').show();
+	  $('#project_loading_notice').show().html('Loading project list. Please wait ...');
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#student_loading_notice').hide();
