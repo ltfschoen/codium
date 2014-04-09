@@ -56,7 +56,7 @@
 
 	// show 'returning home...' notice when user clicks home link
 	$('#home_loading').on('mousedown', function(){
-	  $('#home_loading_notice').show().html('Returning to welcome page. Please wait ...');
+	  $('#home_loading_notice').show().html("<img src='circle_animation.gif'>&nbsp;&nbsp;Returning to welcome page. Please wait ...");
 	  // hide notices associated with the other links
 	  $('#student_loading_notice').hide();
 	  $('#job_loading_notice').hide();
@@ -66,7 +66,7 @@
 
 	// show 'loading student ...' notice when user clicks student link
 	$('#student_loading').on('mousedown', function(){
-	  $('#student_loading_notice').show().html('Loading students page. Please wait ...');
+	  $('#student_loading_notice').show().html("<img src='circle_animation.gif'>&nbsp;&nbsp;Loading students page. Please wait ...");
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#job_loading_notice').hide();
@@ -76,7 +76,7 @@
 
 	// show 'loading job feed...' notice when user clicks jobs link
 	$('#job_loading').on('mousedown', function(){
-	  $('#job_loading_notice').show().html('Loading job listing. Please wait ...');
+	  $('#job_loading_notice').show().html("<img src='searching_animation.gif'>&nbsp;&nbsp;Loading job listing. Please wait ...");
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#student_loading_notice').hide();
@@ -86,7 +86,7 @@
 
 	// show 'loading blog feed...' notice when user clicks blogs link
 	$('#blog_loading').on('mousedown', function(){
-	  $('#blog_loading_notice').show().html('Loading blog feed. Please wait ...');
+	  $('#blog_loading_notice').show().html("<img src='searching_animation.gif'>&nbsp;&nbsp;Loading blog feed. Please wait ...");
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#student_loading_notice').hide();
@@ -97,7 +97,7 @@
 	// show 'loading project ...' notice when user clicks project link 
 	// important note: class used for project as there are two links
 	$('.project_loading').on('mousedown', function(){
-	  $('#project_loading_notice').show().html('Loading project list. Please wait ...');
+	  $('#project_loading_notice').show().html("<img src='case_animation.gif'>&nbsp;&nbsp;Loading project list. Please wait ...");
 	  // hide notices associated with the other links
 	  $('#home_loading_notice').hide();
 	  $('#student_loading_notice').hide();
