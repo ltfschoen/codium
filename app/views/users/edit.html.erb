@@ -1,6 +1,12 @@
-<div class="page-content">
-  <h2>Edit Student</h2>
+<style>
+#affix { display: block; position: fixed; top: 0;}
+</style>
 
+<div class="page-content">
+
+  <br><br><br>
+
+  <h2>Edit Student</h2>
 
       <%= form_for(@user, :url => {:action => 'update'}) do |f| %>
       <div class="form-group">
@@ -65,4 +71,10 @@
     <div><%= f.submit "Update User", :class => "btn btn-primary" %></div>
   <% end %>
 </div>
+
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+});
+</script>
 

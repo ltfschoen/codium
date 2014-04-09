@@ -1,4 +1,11 @@
+<style>
+#affix { display: block; position: fixed; top: 0;}
+</style>
+
 <div class="page-content">
+
+  <br><br><br>
+
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -100,4 +107,10 @@
   <%= link_to "Back", :back, class: "btn btn-default" %>
 </div>
   </div>
+
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+});
+</script>
 

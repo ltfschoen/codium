@@ -1,4 +1,11 @@
+<style>
+#affix { display: block; position: fixed; top: 0;}
+</style>
+
 <div class="page-content">
+
+  <br><br><br>
+
   <h2>Sign in</h2>
 
 
@@ -20,3 +27,9 @@
 
   <%= render "devise/shared/links" %>
 </div>
+
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+});
+</script>

@@ -1,5 +1,11 @@
+<style>
+#affix { display: block; position: fixed; top: 0;}
+</style>
 
 <div class="page-content">
+
+<br><br><br>
+
 <h2>Projects built by WDI students</h2>
 
 <% @projects.each do |project| %>
@@ -26,10 +32,12 @@
   </div>
   </div>
 
-
-
 <% end %>
 
-
-
 </div>
+
+<script>
+$(document).ready(function(){
+	var $affixTop = $('#affix');
+});
+</script>
