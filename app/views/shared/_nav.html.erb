@@ -1,12 +1,12 @@
 <nav id='affix'>
   <div class="left-menu">
    <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Students", users_path %></a></li>
+    <li><%= link_to "Home", root_path, :id => 'home_loading' %></li>
+    <li><%= link_to "Students", users_path, :id => 'student_loading' %></a></li>
     <% if user_signed_in? %>
-    <li><%= link_to "Jobs", jobs_path %></li>
+    <li><%= link_to "Jobs", jobs_path, :id => 'job_loading' %></li>
     <% end %>
-    <li><%= link_to "Blog Feed", '/blogfeed' %></li>
+    <li><%= link_to "Blog Feed", '/blogfeed', :id => 'blog_loading' %></li>
   </ul>
 </div>
 <div class="login">
@@ -18,10 +18,10 @@
     <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
     <% end %>
     <% if user_signed_in? %>
-    <li class="projects-dropdown" style="display:relative;"><%= link_to 'Projects', projects_path, :class => 'projects' %>
+    <li class="projects-dropdown" style="display:relative;"><%= link_to 'Projects', projects_path, :class => 'projects', :class => 'project_loading' %>
       <ul class="sub-menu">
         <li><%= link_to 'Create Projects', new_project_path, :class => 'navbar-link' %></li>
-        <li><%= link_to 'All Projects', projects_path, :class => 'navbar-link' %></li>
+        <li><%= link_to 'All Projects', projects_path, :class => 'navbar-link', :class => 'project_loading' %></li>
       </ul>
     </li>
     <% end %>
@@ -35,15 +35,84 @@
   <p class="text-alert"><%= alert %></p>
   <p class="text-danger"><%= flash[:error] %></p>
   <% end %>
+
+  <!-- loading notice for clicking key links in nav -->
+  <p id="home_loading_notice">Returning to welcome page. Please wait ...</p>
+  <p id="student_loading_notice">Loading students page. Please wait ...</p>
+  <p id="job_loading_notice">Loading job listing. Please wait ...</p>
+  <p id="blog_loading_notice">Loading blog feed. Please wait ...</p>
+  <p id="project_loading_notice">Loading project list. Please wait ...</p>
+
 </div>
 </nav>
 <script>
 
-$('.projects-dropdown').on('mouseenter', function(){
-  $('.sub-menu').show();
-})
-$('.projects-dropdown').on('mouseleave', function(){
-  $('.sub-menu').hide();
-})
+	// hide 'loading...' notices by default on all pages unless triggered by click
+	$('#home_loading_notice').hide();
+	$('#student_loading_notice').hide();
+	$('#job_loading_notice').hide();
+	$('#blog_loading_notice').hide();
+	$('#project_loading_notice').hide();
+
+	// show 'returning home...' notice when user clicks home link
+	$('#home_loading').on('mousedown', function(){
+	  $('#home_loading_notice').show();
+	  // hide notices associated with the other links
+	  $('#student_loading_notice').hide();
+	  $('#job_loading_notice').hide();
+	  $('#blog_loading_notice').hide();
+	  $('#project_loading_notice').hide();
+	})
+
+	// show 'loading student ...' notice when user clicks student link
+	$('#student_loading').on('mousedown', function(){
+	  $('#student_loading_notice').show();
+	  // hide notices associated with the other links
+	  $('#home_loading_notice').hide();
+	  $('#job_loading_notice').hide();
+	  $('#blog_loading_notice').hide();
+	  $('#project_loading_notice').hide();
+	})
+
+	// show 'loading job feed...' notice when user clicks jobs link
+	$('#job_loading').on('mousedown', function(){
+	  $('#job_loading_notice').show();
+	  // hide notices associated with the other links
+	  $('#home_loading_notice').hide();
+	  $('#student_loading_notice').hide();
+	  $('#blog_loading_notice').hide();
+	  $('#project_loading_notice').hide();
+	})
+
+	// show 'loading blog feed...' notice when user clicks blogs link
+	$('#blog_loading').on('mousedown', function(){
+	  $('#blog_loading_notice').show();
+	  // hide notices associated with the other links
+	  $('#home_loading_notice').hide();
+	  $('#student_loading_notice').hide();
+	  $('#job_loading_notice').hide();
+	  $('#project_loading_notice').hide();
+	})
+
+	// show 'loading project ...' notice when user clicks project link 
+	// important note: class used for project as there are two links
+	$('.project_loading').on('mousedown', function(){
+	  $('#project_loading_notice').show();
+	  // hide notices associated with the other links
+	  $('#home_loading_notice').hide();
+	  $('#student_loading_notice').hide();
+	  $('#job_loading_notice').hide();
+	  $('#blog_loading_notice').hide();
+	})
+
+	//-------- seperate between javascript sections ---------//
+
+	$('.projects-dropdown').on('mouseenter', function(){
+	  $('.sub-menu').show();
+	})
+
+	$('.projects-dropdown').on('mouseleave', function(){
+	  $('.sub-menu').hide();
+	})
 
 </script>
