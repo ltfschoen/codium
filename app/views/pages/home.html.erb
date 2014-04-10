@@ -198,16 +198,79 @@
 
 
 <script>
-$(".skillbox").mouseenter(function() {
-	$(this).children('.info').first().animate({marginTop: '-=240px'}, 700);
-	$(this).addClass('img-grey');
-	$(this).removeClass('img-color');
+
+
+// triggers when document loaded
+$(document).ready(function() {
+
+	var resizeCount;
+	var normalMargin; // declare variable
+	var mobileMargin;
+	
+	$(window).resize(function() {
+	
+		// initialize variables for normal and mobile screen sizes 
+		if (typeof resizeCount !== 'number' && typeof normalMargin !== 'number' && typeof mobileMargin !== 'number') {
+			resizeCount = 0; // re-initialize count of page resizes performed if not previously declared
+			normalMargin = 240;
+			mobileMargin = 150;
+		};
+
+		// console.log('in resize function');
+	    clearTimeout(this.id);
+	    $(this).children('.info').stop(); // loading and resizing so stop active animations 
+	    this.id = setTimeout(doneResizing, 500);
+
+		function doneResizing(){
+			
+			// first page load value is assigned to 1. further resizes cause this counter to increment
+			resizeCount += 1; 
+
+			// detect if user resizes the browser after the page has loaded 
+			// reload page to reset animations correctly if window resized
+			if (resizeCount > 1) {
+				location.reload(); 
+			};
+
+			$(".skillbox").mouseenter(function() {
+				// detect if screensize is 'normal' (multiple column grid of skills)
+				// use normalMargin to shift the skill contents to the correct height for this condition
+				if($(window).width() > 515) {		
+					$(this).children('.info').first().animate({marginTop: '-=' + normalMargin + 'px'}, 700);
+					$(this).addClass('img-grey');
+					$(this).removeClass('img-color');
+					return false;
+				// detect if screensize is 'mobile' (single column skills)
+				// use mobileMargin to shift the skill contents to the correct height for this condition
+				} else if($(window).width() <= 515) {
+					$(this).children('.info').first().animate({marginTop: '-=' + mobileMargin + 'px'}, 700);
+					$(this).addClass('img-grey');
+					$(this).removeClass('img-color');
+					return false;
+				};
+			});
+			$(".skillbox").mouseleave(function() {
+				// detect if screensize is 'normal'. if so use of 'normalMargin' for mouse leave 
+				if($(window).width() > 515) {
+					$(this).children('.info').first().animate({marginTop: '+=' + normalMargin + 'px'}, 700);
+					$(this).removeClass('img-grey');
+					$(this).addClass('img-color');
+					return false;
+				// detect if screensize is 'mobile'. if so use of 'mobileMargin' for mouse leave 
+				} else if($(window).width() <= 515) {
+					$(this).children('.info').first().animate({marginTop: '+=' + mobileMargin + 'px'}, 700);
+					$(this).removeClass('img-grey');
+					$(this).addClass('img-color');
+					return false;
+				};
+			});
+		};
+	});
+
+	$(window).resize(); // simulates a resize to trigger the initial page load and activate animations
+
 });
-$(".skillbox").mouseleave(function() {
-	$(this).children('.info').first().animate({marginTop: '+=240px'}, 700);
-	$(this).removeClass('img-grey');
-	$(this).addClass('img-color');
-});
+
 </script>
 <script>
 $(document).ready(function(){
